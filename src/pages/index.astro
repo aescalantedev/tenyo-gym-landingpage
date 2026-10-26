@@ -1,0 +1,521 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {
+  Target,
+  Dumbbell,
+  Shield,
+  Activity,
+  Timer,
+  Lock,
+  Coffee,
+  Check,
+  X,
+  ArrowRight,
+  ExternalLink,
+  Sparkles,
+  Download,
+  Mail,
+  HelpCircle,
+  Smartphone,
+  Flame,
+  Award,
+  Layers,
+  ChevronRight
+} from '@lucide/astro';
+
+const features = [
+  {
+    icon: Target,
+    title: "Mapa Corporal Interactivo en Rive",
+    description: "Toca directamente la zona muscular que deseas entrenar (pecho, espalda, brazos, piernas, abdomen) en modelos vectoriales de Toji y Maki con rotación 360° Frente / Espalda.",
+    tag: "Exclusivo Rive 2D"
+  },
+  {
+    icon: Activity,
+    title: "+1,300 Ejercicios con Biomecánica",
+    description: "Biblioteca masiva con máquinas de gimnasio, barras olímpicas, mancuernas, poleas y peso corporal (calistenia en casa) con desglose de agonistas y sinergistas.",
+    tag: "Gym & Casa"
+  },
+  {
+    icon: Dumbbell,
+    title: "Protocolos y Rutinas Inteligentes",
+    description: "Rutinas estructuradas listas para ejecutar según tu nivel y equipamiento disponible, con series, repeticiones recomendadas y descansos.",
+    tag: "Fuerza e Hipertrofia"
+  },
+  {
+    icon: Award,
+    title: "Progreso Semanal sin Complicaciones",
+    description: "Visualiza tus días de entrenamiento, volumen acumulado en kg, tiempo total invertido y cálculo automático de tu Índice de Masa Corporal (IMC).",
+    tag: "Métricas Claras"
+  },
+  {
+    icon: Timer,
+    title: "Temporizador de Descanso Integrado",
+    description: "Controla tus tiempos de recuperación entre series sin salir de la rutina para mantener la intensidad exacta que tu cuerpo necesita.",
+    tag: "Enfoque Total"
+  },
+  {
+    icon: Lock,
+    title: "100% Offline y Privacidad Absoluta",
+    description: "Tus datos viven en tu dispositivo con Room Database. Sin registros obligatorios, sin nube y sin publicidad que interrumpa tus entrenamientos.",
+    tag: "Zero Telemetría"
+  }
+];
+
+const screenshots = [
+  {
+    src: "/assets/01_splash_screen.png",
+    title: "Identidad & Filosofía",
+    subtitle: "Disciplina · Fuerza · Esfuerzo"
+  },
+  {
+    src: "/assets/02_home_dashboard.png",
+    title: "Dashboard de Inicio",
+    subtitle: "Métricas y Protocolo Diario"
+  },
+  {
+    src: "/assets/03_exercises_catalog.png",
+    title: "Catálogo Anatómico",
+    subtitle: "+1,300 Ejercicios por Músculo"
+  },
+  {
+    src: "/assets/04_exercise_detail.png",
+    title: "Detalle Biomecánico",
+    subtitle: "Agonistas, Sinergistas y Pasos"
+  },
+  {
+    src: "/assets/05_onboarding_rive_bodymap.png",
+    title: "Selector Corporal Rive",
+    subtitle: "Interactivo Frente y Espalda"
+  }
+];
+
+const faqs = [
+  {
+    q: "¿Tenyo funciona sin conexión a internet?",
+    a: "Sí, al 100%. Toda la biblioteca de más de 1,300 ejercicios, tus marcas personales y la lógica de rutinas funcionan de forma completamente offline usando la base de datos interna de tu teléfono."
+  },
+  {
+    q: "¿Tiene ejercicios para hacer en casa sin pesas?",
+    a: "Totalmente. El catálogo incluye cientos de ejercicios de peso corporal (calistenia, core, piernas y tren superior) para quienes entrenan desde casa sin equipo, además de ejercicios completos para gimnasio con máquinas, barras y mancuernas."
+  },
+  {
+    q: "¿Necesito pagar o ver anuncios?",
+    a: "No. Tenyo es una aplicación independiente sin anuncios invasivos ni muros de pago. Si deseas apoyar el desarrollo, puedes invitarle un café al desarrollador a través de Buy Me a Coffee."
+  },
+  {
+    q: "¿Cómo puedo unirme a la prueba cerrada en Google Play?",
+    a: "Envía un correo rápido a contacto@aescalante.dev indicando tu correo de Google Play Store. Te agregaremos a la lista de testers autorizados y recibirás el enlace directo para descargar la app en tu teléfono."
+  }
+];
+---
+
+<Layout>
+  <!-- Hero Section -->
+  <section class="relative pt-12 sm:pt-20 pb-20 overflow-hidden">
+    <!-- Ambient glow gradients with breathing pulse -->
+    <div class="absolute top-1/4 left-1/2 w-[700px] h-[700px] bg-emerald-500/15 rounded-full blur-[140px] pointer-events-none animate-pulse-glow"></div>
+    <div class="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-emerald-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <!-- Release Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold tracking-wide mb-6 hover:border-emerald-400 transition-colors cursor-default">
+          <Sparkles class="w-3.5 h-3.5 text-emerald-400 animate-spin" style="animation-duration: 8s;" />
+          <span>Versión 1.0 Oficial para Android</span>
+          <span class="text-zinc-600">|</span>
+          <span class="text-zinc-300">+1,300 Ejercicios Gym & Casa</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="font-display text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.12] mb-6">
+          Domina cada ejercicio.<br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-200">
+            Construye fuerza real.
+          </span>
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="text-base sm:text-lg text-zinc-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+          Tu compañero de entrenamiento paso a paso con <strong>más de 1,300 ejercicios</strong> (máquinas de gym y peso corporal en casa). Aprende la técnica correcta, selecciona músculos en un <strong>mapa interactivo en Rive</strong> y progresa <strong>100% sin conexión</strong>.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="#descargar"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl text-base font-bold bg-emerald-400 text-zinc-950 hover:bg-emerald-300 transition-all shadow-xl shadow-emerald-500/25 hover:scale-[1.03] active:scale-[0.98]"
+          >
+            <Download class="w-5 h-5" />
+            <span>Unirme a la Prueba de Google Play</span>
+          </a>
+
+          <a
+            href="https://buymeacoffee.com/aescalante.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl text-base font-semibold bg-[#18160e] border border-amber-400/50 text-amber-300 hover:bg-amber-400 hover:text-black transition-all hover:scale-[1.03] active:scale-[0.98]"
+          >
+            <Coffee class="w-5 h-5 text-amber-300" />
+            <span>Apoyar en Buy Me a Coffee</span>
+          </a>
+        </div>
+
+        <p class="text-xs text-zinc-400 mt-4 flex items-center justify-center gap-2">
+          <Shield class="w-3.5 h-3.5 text-emerald-400" />
+          <span>Sin registros obligatorios · Sin anuncios · Base de datos 100% local</span>
+        </p>
+      </div>
+
+      <!-- Hero Visual Showcase with Floating Animations -->
+      <div class="relative max-w-5xl mx-auto pt-6">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 items-center">
+          
+          <!-- Screen 1: Exercise Detail (Floats slowly) -->
+          <div class="hidden sm:block animate-float-slow">
+            <div class="p-2.5 rounded-[36px] bg-zinc-900/90 border border-zinc-800 shadow-2xl hover:border-emerald-500/40 transition-colors duration-300 backdrop-blur-sm">
+              <img
+                src="/assets/04_exercise_detail.png"
+                alt="Detalle de Ejercicio Biomecánico"
+                class="rounded-[28px] w-full shadow-inner"
+                loading="lazy"
+              />
+            </div>
+            <p class="text-center text-xs text-zinc-400 mt-3 font-medium flex items-center justify-center gap-1.5">
+              <Activity class="w-3.5 h-3.5 text-emerald-400" />
+              <span>Guías Biomecánicas Detalladas</span>
+            </p>
+          </div>
+
+          <!-- Screen 2: Central Featured (Home Dashboard) with Breathing Scale -->
+          <div class="animate-float-center z-20">
+            <div class="p-3 rounded-[40px] bg-gradient-to-b from-emerald-500/40 via-zinc-800 to-zinc-900 border-2 border-emerald-400/60 shadow-2xl shadow-emerald-500/25">
+              <img
+                src="/assets/02_home_dashboard.png"
+                alt="Dashboard de Inicio Tenyo"
+                class="rounded-[30px] w-full shadow-inner"
+              />
+            </div>
+            <p class="text-center text-xs text-emerald-400 mt-3 font-semibold flex items-center justify-center gap-1.5">
+              <Flame class="w-4 h-4 text-emerald-400" />
+              <span>Dashboard Principal de Rutinas</span>
+            </p>
+          </div>
+
+          <!-- Screen 3: Rive Body Map (Floats reverse) -->
+          <div class="hidden sm:block animate-float-reverse">
+            <div class="p-2.5 rounded-[36px] bg-zinc-900/90 border border-zinc-800 shadow-2xl hover:border-emerald-500/40 transition-colors duration-300 backdrop-blur-sm">
+              <img
+                src="/assets/05_onboarding_rive_bodymap.png"
+                alt="Selector Anatómico Interactivo Rive"
+                class="rounded-[28px] w-full shadow-inner"
+                loading="lazy"
+              />
+            </div>
+            <p class="text-center text-xs text-zinc-400 mt-3 font-medium flex items-center justify-center gap-1.5">
+              <Target class="w-3.5 h-3.5 text-emerald-400" />
+              <span>Selector Anatómico Interactivo</span>
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Trust Badges Strip -->
+      <div class="mt-16 pt-8 border-t border-zinc-800/60 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+        <div class="p-4 rounded-2xl bg-zinc-900/30 border border-zinc-800/40 hover:border-zinc-700 transition-colors">
+          <div class="text-2xl sm:text-3xl font-extrabold text-white font-display">100%</div>
+          <div class="text-xs text-zinc-400 mt-1">Offline (Room DB)</div>
+        </div>
+        <div class="p-4 rounded-2xl bg-zinc-900/30 border border-zinc-800/40 hover:border-emerald-500/30 transition-colors">
+          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-display">+1,300</div>
+          <div class="text-xs text-zinc-400 mt-1">Ejercicios Explicados</div>
+        </div>
+        <div class="p-4 rounded-2xl bg-zinc-900/30 border border-zinc-800/40 hover:border-zinc-700 transition-colors">
+          <div class="text-2xl sm:text-3xl font-extrabold text-white font-display">0 Anuncios</div>
+          <div class="text-xs text-zinc-400 mt-1">Cero Distracciones</div>
+        </div>
+        <div class="p-4 rounded-2xl bg-zinc-900/30 border border-zinc-800/40 hover:border-emerald-500/30 transition-colors">
+          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-display">Rive 2D</div>
+          <div class="text-xs text-zinc-400 mt-1">Animación Vectorial</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem / Solution Section -->
+  <section class="py-20 bg-zinc-950/70 border-y border-zinc-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2 class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-2">Entrena con Seguridad</h2>
+        <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white">
+          Basta de dudar si estás haciendo el ejercicio de forma correcta
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Problem Card -->
+        <div class="p-8 rounded-3xl bg-red-950/10 border border-red-500/20 card-hover-effect">
+          <div class="w-10 h-10 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center mb-4">
+            <X class="w-5 h-5 text-red-400" />
+          </div>
+          <h4 class="text-lg font-bold text-white mb-3">Los problemas habituales</h4>
+          <ul class="space-y-3.5 text-sm text-zinc-300">
+            <li class="flex items-start gap-2.5">
+              <span class="text-red-400 mt-0.5">•</span>
+              <span>Llegas al gimnasio o empiezas en casa sin saber qué rutina seguir ni qué músculos estás activando.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-red-400 mt-0.5">•</span>
+              <span>Miedo a lesionarte la espalda o articulaciones por mala postura o técnica deficiente.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-red-400 mt-0.5">•</span>
+              <span>Apps pesadas que te exigen internet, crear cuentas y te interrumpen con anuncios molestos.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Solution Card -->
+        <div class="p-8 rounded-3xl bg-emerald-950/15 border border-emerald-500/30 card-hover-effect">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
+            <Check class="w-5 h-5 text-emerald-400" />
+          </div>
+          <h4 class="text-lg font-bold text-white mb-3">La solución con Tenyo</h4>
+          <ul class="space-y-3.5 text-sm text-zinc-200">
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 mt-0.5">•</span>
+              <span>Más de 1,300 ejercicios explicados paso a paso con postura, agarre y descanso sugerido.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 mt-0.5">•</span>
+              <span>Visualización clara de músculos principales (agonistas) y estabilizadores (sinergistas).</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 mt-0.5">•</span>
+              <span>100% offline y ligera: abres la aplicación y comienzas a entrenar en menos de 2 segundos.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section id="caracteristicas" class="py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-2">Diseñada para Atletas</h2>
+        <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white">
+          Todo lo que necesitas para tu entrenamiento diario
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {features.map((feat) => {
+          const IconComp = feat.icon;
+          return (
+            <div class="p-7 rounded-3xl bg-zinc-900/40 border border-zinc-800/80 hover:border-emerald-500/40 card-hover-effect group">
+              <div class="flex items-center justify-between mb-4">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-400 group-hover:text-black transition-all duration-300">
+                  <IconComp class="w-6 h-6" />
+                </div>
+                <span class="text-[11px] font-semibold px-2.5 py-1 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700">
+                  {feat.tag}
+                </span>
+              </div>
+              <h4 class="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors mb-2">
+                {feat.title}
+              </h4>
+              <p class="text-sm text-zinc-400 leading-relaxed">
+                {feat.description}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Rive Body Map Highlight -->
+  <section id="anatomia" class="py-20 bg-gradient-to-b from-[#08090a] via-zinc-950 to-[#08090a] border-y border-zinc-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-4">
+            <Layers class="w-3.5 h-3.5 text-emerald-400" />
+            <span>Tecnología Rive 2D</span>
+          </div>
+          <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-6 leading-tight">
+            Toca el músculo que quieres entrenar y obtén tu rutina
+          </h3>
+          <p class="text-base text-zinc-300 leading-relaxed mb-6">
+            Olvídate de listas interminables y menús confusos. Tenyo incorpora un <strong>mapa anatómico interactivo impulsado por Rive</strong> que te permite rotar entre vista de Frente y Espalda para seleccionar exactamente los grupos musculares que deseas priorizar.
+          </p>
+          <ul class="space-y-3.5 text-sm text-zinc-300 mb-8">
+            <li class="flex items-center gap-3">
+              <div class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs">
+                <Check class="w-3.5 h-3.5" />
+              </div>
+              <span>Arquetipos marciales dinámicos (Toji Fushiguro & Maki Zenin)</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <div class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs">
+                <Check class="w-3.5 h-3.5" />
+              </div>
+              <span>Iluminación reactiva en tiempo real al seleccionar pectorales, dorsales, brazos, etc.</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <div class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs">
+                <Check class="w-3.5 h-3.5" />
+              </div>
+              <span>Animaciones de respiración suaves (Idle) con mínimo consumo de batería</span>
+            </li>
+          </ul>
+          <a
+            href="#descargar"
+            class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold bg-zinc-100 text-zinc-950 hover:bg-emerald-400 hover:scale-105 active:scale-95 transition-all text-sm shadow-md"
+          >
+            <span>Probar la experiencia interactiva</span>
+            <ArrowRight class="w-4 h-4" />
+          </a>
+        </div>
+
+        <div class="flex justify-center">
+          <div class="p-3 rounded-[38px] bg-zinc-900/80 border border-zinc-800 shadow-2xl max-w-xs hover:border-emerald-500/40 transition-colors duration-300 group">
+            <img
+              src="/assets/05_onboarding_rive_bodymap.png"
+              alt="Selector Rive de Cuerpo Completo"
+              class="rounded-[28px] w-full group-hover:scale-[1.02] transition-transform duration-300"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots Gallery -->
+  <section id="capturas" class="py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-2">Galería de la Aplicación</h2>
+        <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white">
+          Una interfaz pensada para entrenar, no para distraer
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+        {screenshots.map((s) => (
+          <div class="group flex flex-col">
+            <div class="p-2 rounded-2xl sm:rounded-3xl bg-zinc-900 border border-zinc-800 group-hover:border-emerald-500/40 transition-all duration-300 shadow-lg group-hover:-translate-y-2">
+              <img
+                src={s.src}
+                alt={s.title}
+                class="rounded-xl sm:rounded-2xl w-full"
+                loading="lazy"
+              />
+            </div>
+            <div class="mt-3 text-center">
+              <h5 class="text-xs sm:text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">{s.title}</h5>
+              <p class="text-[11px] text-zinc-400 mt-0.5">{s.subtitle}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Buy Me a Coffee Support Banner -->
+  <section class="py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[#1c190f] via-zinc-900 to-[#1c190f] border border-amber-400/40 relative overflow-hidden shadow-2xl card-hover-effect">
+        <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+          <div class="max-w-xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-wider mb-4">
+              <Coffee class="w-4 h-4 text-amber-300" />
+              <span>Apoyo al Proyecto Independiente</span>
+            </div>
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-white mb-3">
+              ¿Tenyo te ayuda en tus entrenamientos?
+            </h3>
+            <p class="text-sm sm:text-base text-zinc-300 leading-relaxed">
+              Tenyo es un desarrollo completamente independiente, sin grandes corporaciones detrás ni publicidad invasiva. Si la app te es útil para entrenar con mejor técnica, puedes invitarle un café al desarrollador y apoyar las próximas actualizaciones.
+            </p>
+          </div>
+
+          <a
+            href="https://buymeacoffee.com/aescalante.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex-shrink-0 inline-flex items-center gap-3 px-8 py-4 rounded-2xl text-base font-bold bg-[#FFDD00] text-zinc-950 hover:bg-yellow-300 transition-all shadow-xl shadow-yellow-500/20 hover:scale-[1.04] active:scale-[0.98]"
+          >
+            <Coffee class="w-6 h-6 text-zinc-950" />
+            <span>Invítame un café</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download / Beta Access Section -->
+  <section id="descargar" class="py-20 bg-zinc-950/60 border-t border-zinc-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <img src="/assets/tenyo_logo.png" alt="Tenyo Logo" class="w-16 h-16 rounded-2xl mx-auto mb-6 shadow-xl border border-emerald-500/30 hover:scale-105 transition-transform" />
+      <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4">
+        Únete a la Prueba Cerrada en Google Play
+      </h3>
+      <p class="text-base text-zinc-300 max-w-xl mx-auto mb-4">
+        Tenyo se encuentra actualmente en fase de <strong>prueba cerrada de Google Play</strong> para los primeros 12 testers activos.
+      </p>
+      <p class="text-sm text-zinc-400 max-w-lg mx-auto mb-8">
+        Para recibir tu invitación oficial y descargar la app directamente en tu teléfono Android, solo escríbenos a <strong class="text-emerald-400">contacto@aescalante.dev</strong> con tu correo de Google Play:
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="mailto:contacto@aescalante.dev?subject=Acceso%20Tester%20Tenyo%20App"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl text-base font-bold bg-emerald-400 text-zinc-950 hover:bg-emerald-300 hover:scale-[1.03] active:scale-[0.98] transition-all shadow-xl shadow-emerald-500/25"
+        >
+          <Mail class="w-5 h-5 text-zinc-950" />
+          <span>Solicitar Invitación (contacto@aescalante.dev)</span>
+        </a>
+        <a
+          href="https://github.com/aescalantedev"
+          target="_blank"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl text-base font-semibold bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 hover:scale-[1.03] active:scale-[0.98] transition-all"
+        >
+          <ExternalLink class="w-4 h-4" />
+          <span>Ver GitHub</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-14">
+        <h2 class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-2 flex items-center justify-center gap-1.5">
+          <HelpCircle class="w-4 h-4 text-emerald-400" />
+          <span>Preguntas Frecuentes</span>
+        </h2>
+        <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-white">
+          Respuestas rápidas sobre Tenyo
+        </h3>
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((faq) => (
+          <div class="p-6 rounded-2xl bg-zinc-900/30 border border-zinc-800/80 hover:border-zinc-700/80 transition-colors">
+            <h4 class="text-base font-bold text-white mb-2 flex items-center gap-2">
+              <ChevronRight class="w-4 h-4 text-emerald-400" />
+              <span>{faq.q}</span>
+            </h4>
+            <p class="text-sm text-zinc-400 leading-relaxed pl-6">{faq.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

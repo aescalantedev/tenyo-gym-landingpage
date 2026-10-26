@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ArrowLeft, ShieldCheck, Mail } from '@lucide/astro';
+---
+
+<Layout
+  title="Política de Privacidad | Tenyo App"
+  description="Política de privacidad oficial y transparente de Tenyo: Rutinas de Gym y Casa. Cero recopilación en la nube y 100% privacidad de tus datos de entrenamiento."
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+    <!-- Breadcrumb & Header -->
+    <div class="mb-10">
+      <a href="/" class="inline-flex items-center gap-2 text-xs font-semibold text-emerald-400 hover:text-emerald-300 transition-colors mb-6 group">
+        <ArrowLeft class="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+        <span>Volver a la página principal</span>
+      </a>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-3">
+        <ShieldCheck class="w-3.5 h-3.5 text-emerald-400" />
+        <span>Documento Oficial · Google Play Compliant</span>
+      </div>
+      <h1 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-3">
+        Política de Privacidad
+      </h1>
+      <p class="text-sm text-zinc-400">
+        Última actualización: <strong>26 de octubre de 2026</strong> · Aplicación: <strong>Tenyo: Rutinas de Gym y Casa (com.aescalantedev.tenyo)</strong>
+      </p>
+    </div>
+
+    <!-- Privacy Content Card -->
+    <div class="p-8 sm:p-12 rounded-3xl bg-zinc-900/40 border border-zinc-800/80 shadow-2xl space-y-8 text-sm sm:text-base text-zinc-300 leading-relaxed backdrop-blur-sm">
+      
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+          <span class="text-emerald-400 font-mono text-sm">01.</span> Resumen y Filosofía de Privacidad
+        </h2>
+        <p>
+          En <strong>Tenyo</strong>, desarrollada por <strong>Anthony Escalante</strong> (contacto oficial: <a href="mailto:contacto@aescalante.dev" class="text-emerald-400 underline">contacto@aescalante.dev</a>), valoramos tu privacidad como un principio fundamental. Creemos que tus marcas de entrenamiento, peso corporal y rutinas físicas te pertenecen exclusivamente a ti.
+        </p>
+        <div class="p-4 rounded-2xl bg-emerald-950/20 border border-emerald-500/30 text-emerald-200 text-sm">
+          <strong>En resumen:</strong> Tenyo es una aplicación <strong>100% offline-first</strong>. No recopilamos, no transmitimos, no vendemos ni compartimos ninguna información personal con ningún servidor externo o empresa de publicidad.
+        </div>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+          <span class="text-emerald-400 font-mono text-sm">02.</span> Información que Ingresas en la Aplicación
+        </h2>
+        <p>
+          Durante el uso de la aplicación, puedes ingresar voluntariamente datos orientados a tu acondicionamiento físico, tales como:
+        </p>
+        <ul class="list-disc list-inside space-y-1.5 text-zinc-300 pl-2">
+          <li><strong>Métricas físicas:</strong> Peso corporal, estatura y cálculo automático del Índice de Masa Corporal (IMC).</li>
+          <li><strong>Preferencias de entrenamiento:</strong> Frecuencia semanal, nivel de experiencia y grupos musculares prioritarios.</li>
+          <li><strong>Registros de rutinas:</strong> Series, repeticiones, cargas levantadas y tiempos de descanso entre los más de 1,300 ejercicios disponibles.</li>
+          <li><strong>Configuración:</strong> Tema visual (Dark obsidian/Emerald/Etc.) y preferencias de unidades de peso (kg / lbs).</li>
+        </ul>
+        <p class="text-zinc-400 text-sm italic">
+          Todos estos datos se almacenan de manera local y segura dentro de la base de datos interna de tu dispositivo (Android Room Database). Jamás salen de tu teléfono.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+          <span class="text-emerald-400 font-mono text-sm">03.</span> Cero Conexión a Servidores y Cero Terceros
+        </h2>
+        <p>
+          Tenyo no incluye librerías de seguimiento invasivo, SDKs de redes sociales, píxeles de marketing ni redes publicitarias:
+        </p>
+        <ul class="list-disc list-inside space-y-1.5 text-zinc-300 pl-2">
+          <li><strong>Sin anuncios:</strong> No mostramos banners, intersticiales ni anuncios recompensados.</li>
+          <li><strong>Sin cuentas en la nube:</strong> No necesitas registrarte con correo electrónico, contraseña ni perfiles sociales para entrenar.</li>
+          <li><strong>Sin telemetría oculta:</strong> No rastreamos tu ubicación geográfica, identificadores de publicidad ni hábitos de uso.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+          <span class="text-emerald-400 font-mono text-sm">04.</span> Permisos del Dispositivo Android
+        </h2>
+        <p>
+          Tenyo solicita únicamente los permisos estrictamente necesarios para el correcto funcionamiento de los temporizadores y la experiencia de usuario:
+        </p>
+        <ul class="list-disc list-inside space-y-1.5 text-zinc-300 pl-2">
+          <li><strong>Notificaciones (opcional en Android 13+):</strong> Utilizado exclusivamente para alertarte en pantalla cuando termine tu temporizador de descanso entre series, incluso si minimizas la app.</li>
+        </ul>
+        <p>
+          La aplicación <strong>NO solicita</strong> acceso a tu cámara, contactos, micrófono, ubicación GPS ni almacenamiento externo sensible.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+          <span class="text-emerald-400 font-mono text-sm">05.</span> Retención y Eliminación Total de Datos
+        </h2>
+        <p>
+          Dado que todos los datos residen en la memoria local de tu dispositivo Android:
+        </p>
+        <ul class="list-disc list-inside space-y-1.5 text-zinc-300 pl-2">
+          <li>Puedes reiniciar tus preferencias o asistente en cualquier momento desde la sección de <em>Ajustes de Perfil</em> en la app.</li>
+          <li>Si decides desinstalar la aplicación o limpiar el almacenamiento de la app desde los <em>Ajustes de tu sistema Android</em>, todos tus registros se eliminarán de forma inmediata, definitiva e irrecuperable.</li>
+        </ul>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+          <span class="text-emerald-400 font-mono text-sm">06.</span> Privacidad de Menores
+        </h2>
+        <p>
+          Tenyo no recopila información de identificación personal de ningún usuario, incluidos los menores de edad. Recomendamos que los menores utilicen la aplicación bajo la supervisión de un adulto o entrenador certificado para asegurar la técnica postural adecuada.
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+          <span class="text-emerald-400 font-mono text-sm">07.</span> Cambios en esta Política
+        </h2>
+        <p>
+          Cualquier actualización futura a esta política se publicará en esta misma dirección web (<a href="https://tenyo.aescalante.dev/privacy" class="text-emerald-400 underline">https://tenyo.aescalante.dev/privacy</a>) y se reflejará con la fecha correspondiente en la parte superior.
+        </p>
+      </section>
+
+      <section class="space-y-3 pt-4 border-t border-zinc-800">
+        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+          <span class="text-emerald-400 font-mono text-sm">08.</span> Contacto Oficial del Desarrollador
+        </h2>
+        <p>
+          Si tienes preguntas, sugerencias o dudas sobre la privacidad de la aplicación, puedes comunicarte directamente con el desarrollador:
+        </p>
+        <div class="p-5 rounded-2xl bg-zinc-800/40 border border-zinc-700/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <div class="font-semibold text-white">Anthony Escalante</div>
+            <div class="text-xs text-zinc-400">Desarrollador de Tenyo · aescalante.dev</div>
+          </div>
+          <a
+            href="mailto:contacto@aescalante.dev"
+            class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 hover:bg-emerald-500/20 transition-all"
+          >
+            <Mail class="w-4 h-4 text-emerald-400" />
+            <span>contacto@aescalante.dev</span>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</Layout>
