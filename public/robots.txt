@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tenyo.aescalante.dev/sitemap-index.xml

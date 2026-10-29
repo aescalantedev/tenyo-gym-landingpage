@@ -14,13 +14,17 @@ import {
   ExternalLink,
   Sparkles,
   Download,
-  Mail,
+  Users,
   HelpCircle,
   Smartphone,
   Flame,
   Award,
   Layers,
-  ChevronRight
+  ChevronRight,
+  ShieldCheck,
+  CheckCircle2,
+  Globe,
+  Info
 } from '@lucide/astro';
 
 const features = [
@@ -64,27 +68,27 @@ const features = [
 
 const screenshots = [
   {
-    src: "/assets/01_splash_screen.png",
+    src: "/assets/01_splash_screen.webp",
     title: "Identidad & Filosofía",
     subtitle: "Disciplina · Fuerza · Esfuerzo"
   },
   {
-    src: "/assets/02_home_dashboard.png",
+    src: "/assets/02_home_dashboard.webp",
     title: "Dashboard de Inicio",
     subtitle: "Métricas y Protocolo Diario"
   },
   {
-    src: "/assets/03_exercises_catalog.png",
+    src: "/assets/03_exercises_catalog.webp",
     title: "Catálogo Anatómico",
     subtitle: "+1,300 Ejercicios por Músculo"
   },
   {
-    src: "/assets/04_exercise_detail.png",
+    src: "/assets/04_exercise_detail.webp",
     title: "Detalle Biomecánico",
     subtitle: "Agonistas, Sinergistas y Pasos"
   },
   {
-    src: "/assets/05_onboarding_rive_bodymap.png",
+    src: "/assets/05_onboarding_rive_bodymap.webp",
     title: "Selector Corporal Rive",
     subtitle: "Interactivo Frente y Espalda"
   }
@@ -92,20 +96,28 @@ const screenshots = [
 
 const faqs = [
   {
+    q: "¿Cómo me uno a la prueba cerrada y descargo Tenyo en Google Play?",
+    a: "Google Play requiere 2 pasos rápidos: primero haz clic en '1. Unirme al Grupo de Testers' para autorizar tu cuenta de Google. Luego, puedes instalar la aplicación directamente desde tu celular Android mediante la ficha de Google Play Store, o si estás en una computadora, aceptar la invitación desde el enlace web de prueba (play.google.com/apps/testing/...) y se sincronizará con tu teléfono."
+  },
+  {
+    q: "¿Por qué Google Play dice 'App not available' al abrir el enlace?",
+    a: "Este error ocurre casi siempre si tienes varias cuentas de Google en tu dispositivo o navegador y estás abriendo el enlace con una cuenta distinta a la que usaste para unirte al Grupo de Testers. Para solucionarlo: 1) Cambia a la cuenta de Google con la que te uniste al grupo en la esquina superior del navegador. 2) Si estás en el teléfono desde WhatsApp o redes sociales, abre el enlace en tu navegador Chrome nativo para mantener tu sesión activa. 3) Espera 2 minutos a que Google termine de propagar la membresía del grupo."
+  },
+  {
+    q: "¿Qué versión de Android necesito?",
+    a: "Tenyo es compatible con dispositivos Android 8.0 (Oreo / API 27) o superior, con experiencia recomendada y optimizada para Android 14+ (API 34+)."
+  },
+  {
     q: "¿Tenyo funciona sin conexión a internet?",
-    a: "Sí, al 100%. Toda la biblioteca de más de 1,300 ejercicios, tus marcas personales y la lógica de rutinas funcionan de forma completamente offline usando la base de datos interna de tu teléfono."
+    a: "Sí, al 100%. Toda la biblioteca de más de 1,300 ejercicios, tus marcas personales y la lógica de rutinas funcionan de forma completamente offline usando la base de datos local (Room) de tu teléfono."
   },
   {
     q: "¿Tiene ejercicios para hacer en casa sin pesas?",
     a: "Totalmente. El catálogo incluye cientos de ejercicios de peso corporal (calistenia, core, piernas y tren superior) para quienes entrenan desde casa sin equipo, además de ejercicios completos para gimnasio con máquinas, barras y mancuernas."
   },
   {
-    q: "¿Necesito pagar o ver anuncios?",
-    a: "No. Tenyo es una aplicación independiente sin anuncios invasivos ni muros de pago. Si deseas apoyar el desarrollo, puedes invitarle un café al desarrollador a través de Buy Me a Coffee."
-  },
-  {
-    q: "¿Cómo puedo unirme a la prueba cerrada en Google Play?",
-    a: "Envía un correo rápido a contacto@aescalante.dev indicando tu correo de Google Play Store. Te agregaremos a la lista de testers autorizados y recibirás el enlace directo para descargar la app en tu teléfono."
+    q: "¿Necesito registrarme o pagar suscripción?",
+    a: "No. Tenyo es una aplicación independiente, de código abierto, sin suscripciones obligatorias ni muros de pago. Si deseas apoyar el proyecto, puedes invitarle un café al desarrollador en Buy Me a Coffee."
   }
 ];
 ---
@@ -122,7 +134,7 @@ const faqs = [
         <!-- Release Badge -->
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold tracking-wide mb-6 hover:border-emerald-400 transition-colors cursor-default">
           <Sparkles class="w-3.5 h-3.5 text-emerald-400 animate-spin" style="animation-duration: 8s;" />
-          <span>Versión 1.0 Oficial para Android</span>
+          <span>Prueba Cerrada Oficial en Google Play</span>
           <span class="text-zinc-600">|</span>
           <span class="text-zinc-300">+1,300 Ejercicios Gym & Casa</span>
         </div>
@@ -137,7 +149,7 @@ const faqs = [
 
         <!-- Subheadline -->
         <p class="text-base sm:text-lg text-zinc-300 leading-relaxed mb-8 max-w-2xl mx-auto">
-          Tu compañero de entrenamiento paso a paso con <strong>más de 1,300 ejercicios</strong> (máquinas de gym y peso corporal en casa). Aprende la técnica correcta, selecciona músculos en un <strong>mapa interactivo en Rive</strong> y progresa <strong>100% sin conexión</strong>.
+          Tu compañero de entrenamiento paso a paso con <strong>más de 1,300 ejercicios</strong> (máquinas de gym y peso corporal en casa). Aprende la técnica biomecánica correcta, selecciona músculos en un <strong>mapa interactivo en Rive 2D</strong> y progresa <strong>100% offline</strong>.
         </p>
 
         <!-- CTAs -->
@@ -146,24 +158,24 @@ const faqs = [
             href="#descargar"
             class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl text-base font-bold bg-emerald-400 text-zinc-950 hover:bg-emerald-300 transition-all shadow-xl shadow-emerald-500/25 hover:scale-[1.03] active:scale-[0.98]"
           >
-            <Download class="w-5 h-5" />
-            <span>Unirme a la Prueba de Google Play</span>
+            <Download class="w-5 h-5 text-zinc-950" />
+            <span>Unirme a la Prueba y Descargar</span>
           </a>
 
           <a
-            href="https://buymeacoffee.com/aescalante.dev"
+            href="https://github.com/aescalantedev/tenyo-gym-app"
             target="_blank"
             rel="noopener noreferrer"
-            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl text-base font-semibold bg-[#18160e] border border-amber-400/50 text-amber-300 hover:bg-amber-400 hover:text-black transition-all hover:scale-[1.03] active:scale-[0.98]"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl text-base font-semibold bg-zinc-900 border border-zinc-700/80 text-zinc-200 hover:text-white hover:border-emerald-500/40 transition-all hover:scale-[1.03] active:scale-[0.98]"
           >
-            <Coffee class="w-5 h-5 text-amber-300" />
-            <span>Apoyar en Buy Me a Coffee</span>
+            <ExternalLink class="w-5 h-5 text-zinc-400" />
+            <span>Ver Código en GitHub</span>
           </a>
         </div>
 
-        <p class="text-xs text-zinc-400 mt-4 flex items-center justify-center gap-2">
-          <Shield class="w-3.5 h-3.5 text-emerald-400" />
-          <span>Sin registros obligatorios · Sin anuncios · Base de datos 100% local</span>
+        <p class="text-xs text-zinc-400 mt-4 flex items-center justify-center gap-2 flex-wrap">
+          <Shield class="w-3.5 h-3.5 text-emerald-400 inline" />
+          <span>Android 8.0+ · Sin registros obligatorios · Sin anuncios · Base de datos 100% local</span>
         </p>
       </div>
 
@@ -175,10 +187,12 @@ const faqs = [
           <div class="hidden sm:block animate-float-slow">
             <div class="p-2.5 rounded-[36px] bg-zinc-900/90 border border-zinc-800 shadow-2xl hover:border-emerald-500/40 transition-colors duration-300 backdrop-blur-sm">
               <img
-                src="/assets/04_exercise_detail.png"
-                alt="Detalle de Ejercicio Biomecánico"
+                src="/assets/04_exercise_detail.webp"
+                alt="Detalle de Ejercicio Biomecánico Tenyo"
                 class="rounded-[28px] w-full shadow-inner"
                 loading="lazy"
+                width="472"
+                height="1024"
               />
             </div>
             <p class="text-center text-xs text-zinc-400 mt-3 font-medium flex items-center justify-center gap-1.5">
@@ -191,9 +205,11 @@ const faqs = [
           <div class="animate-float-center z-20">
             <div class="p-3 rounded-[40px] bg-gradient-to-b from-emerald-500/40 via-zinc-800 to-zinc-900 border-2 border-emerald-400/60 shadow-2xl shadow-emerald-500/25">
               <img
-                src="/assets/02_home_dashboard.png"
-                alt="Dashboard de Inicio Tenyo"
+                src="/assets/02_home_dashboard.webp"
+                alt="Dashboard de Inicio Tenyo App"
                 class="rounded-[30px] w-full shadow-inner"
+                width="472"
+                height="1024"
               />
             </div>
             <p class="text-center text-xs text-emerald-400 mt-3 font-semibold flex items-center justify-center gap-1.5">
@@ -206,15 +222,17 @@ const faqs = [
           <div class="hidden sm:block animate-float-reverse">
             <div class="p-2.5 rounded-[36px] bg-zinc-900/90 border border-zinc-800 shadow-2xl hover:border-emerald-500/40 transition-colors duration-300 backdrop-blur-sm">
               <img
-                src="/assets/05_onboarding_rive_bodymap.png"
+                src="/assets/05_onboarding_rive_bodymap.webp"
                 alt="Selector Anatómico Interactivo Rive"
                 class="rounded-[28px] w-full shadow-inner"
                 loading="lazy"
+                width="472"
+                height="1024"
               />
             </div>
             <p class="text-center text-xs text-zinc-400 mt-3 font-medium flex items-center justify-center gap-1.5">
               <Target class="w-3.5 h-3.5 text-emerald-400" />
-              <span>Selector Anatómico Interactivo</span>
+              <span>Selector Anatómico Rive 2D</span>
             </p>
           </div>
 
@@ -236,8 +254,8 @@ const faqs = [
           <div class="text-xs text-zinc-400 mt-1">Cero Distracciones</div>
         </div>
         <div class="p-4 rounded-2xl bg-zinc-900/30 border border-zinc-800/40 hover:border-emerald-500/30 transition-colors">
-          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-display">Rive 2D</div>
-          <div class="text-xs text-zinc-400 mt-1">Animación Vectorial</div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-display">Android 8+</div>
+          <div class="text-xs text-zinc-400 mt-1">Compatibilidad Total</div>
         </div>
       </div>
     </div>
@@ -384,10 +402,12 @@ const faqs = [
         <div class="flex justify-center">
           <div class="p-3 rounded-[38px] bg-zinc-900/80 border border-zinc-800 shadow-2xl max-w-xs hover:border-emerald-500/40 transition-colors duration-300 group">
             <img
-              src="/assets/05_onboarding_rive_bodymap.png"
+              src="/assets/05_onboarding_rive_bodymap.webp"
               alt="Selector Rive de Cuerpo Completo"
               class="rounded-[28px] w-full group-hover:scale-[1.02] transition-transform duration-300"
               loading="lazy"
+              width="472"
+              height="1024"
             />
           </div>
         </div>
@@ -414,6 +434,8 @@ const faqs = [
                 alt={s.title}
                 class="rounded-xl sm:rounded-2xl w-full"
                 loading="lazy"
+                width="472"
+                height="1024"
               />
             </div>
             <div class="mt-3 text-center">
@@ -422,6 +444,136 @@ const faqs = [
             </div>
           </div>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- High Conversion Testers & Download Section -->
+  <section id="descargar" class="py-24 bg-gradient-to-b from-[#08090a] via-zinc-950 to-[#08090a] border-t border-zinc-900 relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <Smartphone class="w-3.5 h-3.5 text-emerald-400" />
+          <span>Acceso Inmediato a la App</span>
+        </div>
+        <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4">
+          Descarga Tenyo desde Google Play
+        </h3>
+        <p class="text-base text-zinc-300">
+          Tenyo se encuentra en fase de <strong>prueba cerrada en Google Play</strong>. Sigue estos <strong>2 pasos rápidos</strong> para habilitar la descarga en tu cuenta de Google:
+        </p>
+      </div>
+
+      <!-- 2-Step Card Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <!-- Step 1 -->
+        <div class="p-8 rounded-3xl bg-zinc-900/60 border-2 border-emerald-500/30 hover:border-emerald-400/60 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group">
+          <div class="absolute top-0 right-0 px-4 py-1.5 bg-emerald-500/20 border-b border-l border-emerald-500/30 rounded-bl-2xl text-[11px] font-bold text-emerald-400 uppercase tracking-wider">
+            Paso 1 Obligatorio
+          </div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center font-display font-extrabold text-lg mb-6 group-hover:scale-110 transition-transform">
+              1
+            </div>
+            <h4 class="text-xl font-bold text-white mb-3">Únete al Grupo de Testers</h4>
+            <p class="text-sm text-zinc-400 leading-relaxed mb-6">
+              Google Play necesita verificar tu cuenta de Google antes de permitirte ver e instalar la app. Unirte toma solo <strong>1 clic</strong> en Google Groups.
+            </p>
+          </div>
+          <a
+            href="https://groups.google.com/g/tenyo-app-testers"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl text-sm font-bold bg-zinc-100 text-zinc-950 hover:bg-emerald-400 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg"
+          >
+            <Users class="w-4 h-4" />
+            <span>Unirme al Grupo de Google</span>
+            <ArrowRight class="w-4 h-4 ml-1" />
+          </a>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="p-8 rounded-3xl bg-zinc-900/60 border-2 border-emerald-500/40 hover:border-emerald-400 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group shadow-xl shadow-emerald-500/10">
+          <div class="absolute top-0 right-0 px-4 py-1.5 bg-emerald-400 text-zinc-950 rounded-bl-2xl text-[11px] font-extrabold uppercase tracking-wider">
+            Paso 2 Acceso
+          </div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-400 text-zinc-950 flex items-center justify-center font-display font-extrabold text-lg mb-6 group-hover:scale-110 transition-transform">
+              2
+            </div>
+            <h4 class="text-xl font-bold text-white mb-3">Descargar o Aceptar Invitación</h4>
+            <p class="text-sm text-zinc-400 leading-relaxed mb-6">
+              Una vez dentro del grupo, puedes instalar la aplicación directamente desde tu teléfono Android o aceptar la invitación de tester desde tu navegador web:
+            </p>
+          </div>
+          <div class="flex flex-col gap-3">
+            <a
+              href="https://play.google.com/store/apps/details?id=com.aescalante.dev.tenyo"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl text-sm font-bold bg-emerald-400 text-zinc-950 hover:bg-emerald-300 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-emerald-500/25"
+            >
+              <Smartphone class="w-4 h-4 text-zinc-950" />
+              <span>Instalar en Android (Google Play)</span>
+              <ArrowRight class="w-4 h-4 ml-1 text-zinc-950" />
+            </a>
+
+            <a
+              href="https://play.google.com/apps/testing/com.aescalante.dev.tenyo"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-zinc-800/80 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-zinc-700/60 transition-colors"
+            >
+              <Globe class="w-3.5 h-3.5 text-emerald-400" />
+              <span>Aceptar invitación vía Web (PC / Navegador)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Helpful Tester Tip Callout -->
+      <div class="mb-8 p-5 sm:p-6 rounded-2xl bg-amber-950/25 border border-amber-500/30 text-amber-200/90 text-xs sm:text-sm leading-relaxed flex items-start gap-4 backdrop-blur-sm">
+        <div class="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <Info class="w-4 h-4 text-amber-400" />
+        </div>
+        <div>
+          <strong class="text-amber-300 font-bold block mb-1 text-sm sm:text-base">
+            ¿Te aparece "App not available" al abrir Google Play?
+          </strong>
+          <p class="text-zinc-300 mb-2">
+            Google Play requiere que tu sesión activa coincida con tu cuenta registrada. Revisa estos 3 puntos rápidos:
+          </p>
+          <ul class="space-y-1.5 text-zinc-300/90 list-disc list-inside">
+            <li><strong>Misma cuenta de Google:</strong> Si tienes varias cuentas en tu navegador, cambia en la esquina superior a la cuenta de Gmail con la que te uniste al Grupo de Testers.</li>
+            <li><strong>Desde WhatsApp / Instagram:</strong> Los navegadores internos no guardan tu sesión de Google. Presiona los tres puntos (<span class="font-mono text-zinc-400">⋮</span>) y elige <em>"Abrir en Chrome"</em> o navegador del sistema.</li>
+            <li><strong>Sincronización inicial:</strong> Si acabas de unirte al grupo, Google puede tardar entre 1 y 5 minutos en activar tu acceso en Play Store.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- System Requirements & Open Source Specs Strip -->
+      <div class="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-zinc-800 flex items-center justify-center text-emerald-400 flex-shrink-0">
+            <Smartphone class="w-4 h-4" />
+          </div>
+          <div>
+            <span class="text-zinc-200 font-semibold block">Requisitos de Sistema:</span>
+            <span>Android 8.0 (API 27) o superior · Recomendado Android 14+ (API 34+)</span>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a
+            href="https://github.com/aescalantedev/tenyo-gym-app"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-800/80 hover:bg-zinc-700 text-zinc-300 hover:text-white transition-colors border border-zinc-700/60 font-semibold"
+          >
+            <ExternalLink class="w-3.5 h-3.5 text-emerald-400" />
+            <span>Código Abierto en GitHub</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -454,40 +606,6 @@ const faqs = [
             <span>Invítame un café</span>
           </a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Download / Beta Access Section -->
-  <section id="descargar" class="py-20 bg-zinc-950/60 border-t border-zinc-900">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-      <img src="/assets/tenyo_logo.png" alt="Tenyo Logo" class="w-16 h-16 rounded-2xl mx-auto mb-6 shadow-xl border border-emerald-500/30 hover:scale-105 transition-transform" />
-      <h3 class="font-display text-3xl sm:text-4xl font-extrabold text-white mb-4">
-        Únete a la Prueba Cerrada en Google Play
-      </h3>
-      <p class="text-base text-zinc-300 max-w-xl mx-auto mb-4">
-        Tenyo se encuentra actualmente en fase de <strong>prueba cerrada de Google Play</strong> para los primeros 12 testers activos.
-      </p>
-      <p class="text-sm text-zinc-400 max-w-lg mx-auto mb-8">
-        Para recibir tu invitación oficial y descargar la app directamente en tu teléfono Android, solo escríbenos a <strong class="text-emerald-400">contacto@aescalante.dev</strong> con tu correo de Google Play:
-      </p>
-
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a
-          href="mailto:contacto@aescalante.dev?subject=Acceso%20Tester%20Tenyo%20App"
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl text-base font-bold bg-emerald-400 text-zinc-950 hover:bg-emerald-300 hover:scale-[1.03] active:scale-[0.98] transition-all shadow-xl shadow-emerald-500/25"
-        >
-          <Mail class="w-5 h-5 text-zinc-950" />
-          <span>Solicitar Invitación (contacto@aescalante.dev)</span>
-        </a>
-        <a
-          href="https://github.com/aescalantedev"
-          target="_blank"
-          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl text-base font-semibold bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 hover:scale-[1.03] active:scale-[0.98] transition-all"
-        >
-          <ExternalLink class="w-4 h-4" />
-          <span>Ver GitHub</span>
-        </a>
       </div>
     </div>
   </section>

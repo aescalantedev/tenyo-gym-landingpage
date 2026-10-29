@@ -1,16 +1,41 @@
 ---
 import '../styles/global.css';
-import { Coffee, ArrowRight, ShieldCheck } from '@lucide/astro';
+import { Coffee, ArrowRight, ShieldCheck, Users, Download, Globe } from '@lucide/astro';
 
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
 }
 
 const {
-  title = "Tenyo: Rutinas de Gym y Casa",
-  description = "Aprende la técnica correcta de más de 1,300 ejercicios, sigue tus rutinas paso a paso y transforma tu fuerza física. 100% offline con mapa corporal interactivo."
+  title = "Tenyo: Rutinas de Gym y Calistenia Offline | +1,300 Ejercicios",
+  description = "Aprende la técnica correcta de más de 1,300 ejercicios, sigue tus rutinas paso a paso y transforma tu fuerza física. 100% offline con mapa corporal interactivo en Rive 2D para Android."
 } = Astro.props;
+
+const siteUrl = "https://tenyo.aescalante.dev";
+const ogImageUrl = `${siteUrl}/assets/02_home_dashboard.webp`;
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Tenyo",
+  "operatingSystem": "Android 8.0+",
+  "applicationCategory": "HealthApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": description,
+  "softwareVersion": "1.0",
+  "downloadUrl": "https://play.google.com/store/apps/details?id=com.aescalante.dev.tenyo",
+  "codeRepository": "https://github.com/aescalantedev/tenyo-gym-app",
+  "author": {
+    "@type": "Person",
+    "name": "Anthony Escalante",
+    "url": "https://aescalante.dev"
+  }
+};
 ---
 
 <!doctype html>
@@ -18,25 +43,36 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/webp" href="/assets/tenyo_icon.webp" />
     <link rel="icon" type="image/png" href="/assets/tenyo_icon.png" />
+    <link rel="canonical" href={siteUrl} />
     <meta name="generator" content={Astro.generator} />
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#08090a" />
 
     <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://tenyo.aescalante.dev/" />
+    <meta property="og:url" content={siteUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/assets/02_home_dashboard.png" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1080" />
+    <meta property="og:image:height" content="1920" />
+    <meta property="og:locale" content="es_LA" />
+    <meta property="og:site_name" content="Tenyo App" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://tenyo.aescalante.dev/" />
+    <meta property="twitter:url" content={siteUrl} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content="/assets/02_home_dashboard.png" />
+    <meta property="twitter:image" content={ogImageUrl} />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -56,7 +92,7 @@ const {
     <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#08090a]/85 border-b border-zinc-800/60 transition-all duration-300">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
         <a href="/" class="flex items-center gap-3 group">
-          <img src="/assets/tenyo_logo.png" alt="Tenyo Logo" class="w-10 h-10 rounded-xl border border-emerald-500/30 group-hover:border-emerald-400 group-hover:scale-105 transition-all duration-300 shadow-sm" />
+          <img src="/assets/tenyo_logo.webp" alt="Tenyo Logo" class="w-10 h-10 rounded-xl border border-emerald-500/30 group-hover:border-emerald-400 group-hover:scale-105 transition-all duration-300 shadow-sm" width="40" height="40" />
           <div class="flex flex-col">
             <span class="font-display font-extrabold text-lg tracking-wider text-white flex items-center gap-1.5">
               TEN<span class="text-emerald-400">Y</span>O
@@ -70,6 +106,7 @@ const {
           <a href="/#caracteristicas" class="hover:text-emerald-400 transition-colors">Características</a>
           <a href="/#anatomia" class="hover:text-emerald-400 transition-colors">Mapa Rive</a>
           <a href="/#capturas" class="hover:text-emerald-400 transition-colors">Capturas</a>
+          <a href="/#descargar" class="hover:text-emerald-400 transition-colors">Testers Google Play</a>
           <a href="/privacy" class="hover:text-emerald-400 transition-colors">Privacidad</a>
         </nav>
 
@@ -78,10 +115,10 @@ const {
             href="https://buymeacoffee.com/aescalante.dev"
             target="_blank"
             rel="noopener noreferrer"
-            class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#1a1708] border border-amber-400/40 text-amber-300 hover:bg-amber-400 hover:text-black hover:scale-105 active:scale-95 transition-all duration-200"
+            class="hidden lg:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#1a1708] border border-amber-400/40 text-amber-300 hover:bg-amber-400 hover:text-black hover:scale-105 active:scale-95 transition-all duration-200"
           >
             <Coffee class="w-4 h-4" />
-            <span>Buy Me a Coffee</span>
+            <span>Café</span>
           </a>
           <a
             href="/#descargar"
@@ -105,7 +142,7 @@ const {
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div class="md:col-span-2">
             <div class="flex items-center gap-3 mb-4">
-              <img src="/assets/tenyo_logo.png" alt="Tenyo Logo" class="w-8 h-8 rounded-lg" />
+              <img src="/assets/tenyo_logo.webp" alt="Tenyo Logo" class="w-8 h-8 rounded-lg" width="32" height="32" />
               <span class="font-display font-extrabold text-lg tracking-wider text-white">
                 TEN<span class="text-emerald-400">Y</span>O
               </span>
@@ -124,23 +161,25 @@ const {
               <li><a href="/#caracteristicas" class="hover:text-emerald-400 transition-colors">Características</a></li>
               <li><a href="/#anatomia" class="hover:text-emerald-400 transition-colors">Selector Anatómico Rive</a></li>
               <li><a href="/#capturas" class="hover:text-emerald-400 transition-colors">Capturas de Pantalla</a></li>
-              <li><a href="/#descargar" class="hover:text-emerald-400 transition-colors">Acceso de Tester</a></li>
+              <li><a href="/#descargar" class="hover:text-emerald-400 transition-colors">Programa de Testers</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 class="text-xs font-bold text-zinc-300 uppercase tracking-wider mb-3">Legal y Contacto</h4>
+            <h4 class="text-xs font-bold text-zinc-300 uppercase tracking-wider mb-3">Comunidad & Enlaces</h4>
             <ul class="space-y-2 text-sm text-zinc-400">
+              <li><a href="https://groups.google.com/g/tenyo-app-testers" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5"><Users class="w-3.5 h-3.5 text-emerald-400" /> Grupo de Testers</a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=com.aescalante.dev.tenyo" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5"><Download class="w-3.5 h-3.5 text-emerald-400" /> Google Play (Android)</a></li>
+              <li><a href="https://play.google.com/apps/testing/com.aescalante.dev.tenyo" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5"><Globe class="w-3.5 h-3.5 text-emerald-400" /> Acceso Web Testers</a></li>
+              <li><a href="https://github.com/aescalantedev/tenyo-gym-app" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors">GitHub (tenyo-gym-app)</a></li>
               <li><a href="/privacy" class="hover:text-emerald-400 transition-colors">Política de Privacidad</a></li>
-              <li><a href="https://buymeacoffee.com/aescalante.dev" target="_blank" class="hover:text-amber-400 transition-colors">Apoyar al Desarrollador</a></li>
-              <li><a href="https://github.com/aescalantedev" target="_blank" class="hover:text-emerald-400 transition-colors">GitHub del Proyecto</a></li>
-              <li><a href="mailto:contacto@aescalante.dev" class="hover:text-emerald-400 transition-colors">contacto@aescalante.dev</a></li>
+              <li><a href="https://buymeacoffee.com/aescalante.dev" target="_blank" rel="noopener noreferrer" class="hover:text-amber-400 transition-colors">Apoyar con un café</a></li>
             </ul>
           </div>
         </div>
 
         <div class="pt-8 border-t border-zinc-900/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400">
-          <span>&copy; {new Date().getFullYear()} Tenyo App. Todos los derechos reservados.</span>
+          <span>&copy; {new Date().getFullYear()} Tenyo App. Código abierto y libre de telemetría.</span>
           <span class="flex items-center gap-1.5 text-zinc-400">
             <ShieldCheck class="w-3.5 h-3.5 text-emerald-400" />
             <span>Desarrollado por <a href="https://aescalante.dev" class="text-emerald-400 hover:underline">aescalante.dev</a></span>
